@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import java.awt.RenderingHints;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.junit.Test;
@@ -11,6 +12,7 @@ import static org.junit.Assert.*;
 import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -90,7 +92,7 @@ public class SeleniumTest {
         System.out.println("Row count after filter is: " + rowCount);
         assertEquals(2, rowCount);
 
-        searchFilter.clear();
+        searchFilter.sendKeys(Keys.BACK_SPACE);
 
         int rows = driver.findElements(By.xpath("//table[@class='table']/tbody/tr")).size();
         System.out.println("Number of rows after clear: " + rows);
